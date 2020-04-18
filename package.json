@@ -1,0 +1,45 @@
+{
+  "name": "luv-with-pesy",
+  "version": "0.0.0",
+  "description": "My Project",
+  "esy": {
+    "build": "dune build -p <PACKAGE_NAME>",
+    "buildDev": "pesy",
+    "release": {
+      "releasedBinaries": [
+        "LuvWithPesyApp.exe"
+      ]
+    }
+  },
+  "buildDirs": {
+    "test": {
+      "require": ["luv-with-pesy.lib"],
+      "main": "TestLuvWithPesy",
+      "name": "TestLuvWithPesy.exe"
+    },
+    "library": {
+      "name": "luv-with-pesy.lib",
+      "namespace": "LuvWithPesy"
+    },
+    "executable": {
+      "require": ["luv-with-pesy.lib"],
+      "main": "LuvWithPesyApp",
+      "name": "LuvWithPesyApp.exe"
+    }
+  },
+  "scripts": {
+    "pesy": "bash -c 'env PESY_MODE=update pesy'",
+    "test": "esy x TestLuvWithPesy.exe"
+  },
+  "dependencies": {
+    "@opam/dune": ">=1.6.0",
+    "@esy-ocaml/reason": "3.6.0",
+    "ocaml": "^4.9.0"
+  },
+  "devDependencies": {
+    "ocaml": "4.9.0",
+    "refmterr": "3.3.0",
+    "pesy": "0.4.4",
+    "@opam/merlin": "*"
+  }
+}
