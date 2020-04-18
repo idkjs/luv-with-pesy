@@ -33,6 +33,29 @@ git clone <this-repo>
 esy install
 esy build
 ```
+## Adding a library
+
+Using [`luv`](https://github.com/aantron/luv)
+
+Run `esy install @opam/luv`
+
+Then got `package.json` and add `"require": ["luv"]`
+
+```json
+    "library": {
+      "name": "luv-with-pesy.lib",
+      "namespace": "LuvWithPesy",
+     add this-> "require": [
+        "luv" 
+      ]
+    },
+```
+
+Then run `esy pesy` to rebuild. Note that your `dune` file in `library/dune` as changed to reflect the added `luv` library.
+
+Now you can call `LuvWithPesy.Demo.luv();` in `executable/LuvWithPesyApp.re`;
+
+Run `esy x LuvWithPesyApp.exe` an watch the output.
 
 ## Running Binary:
 

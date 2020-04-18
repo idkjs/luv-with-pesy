@@ -13,16 +13,23 @@
   },
   "buildDirs": {
     "test": {
-      "require": ["luv-with-pesy.lib"],
+      "require": [
+        "luv-with-pesy.lib"
+      ],
       "main": "TestLuvWithPesy",
       "name": "TestLuvWithPesy.exe"
     },
     "library": {
       "name": "luv-with-pesy.lib",
-      "namespace": "LuvWithPesy"
+      "namespace": "LuvWithPesy",
+      "require": [
+        "luv"
+      ]
     },
     "executable": {
-      "require": ["luv-with-pesy.lib"],
+      "require": [
+        "luv-with-pesy.lib"
+      ],
       "main": "LuvWithPesyApp",
       "name": "LuvWithPesyApp.exe"
     }
@@ -32,8 +39,9 @@
     "test": "esy x TestLuvWithPesy.exe"
   },
   "dependencies": {
-    "@opam/dune": ">=1.6.0",
     "@esy-ocaml/reason": "3.6.0",
+    "@opam/dune": ">=1.6.0",
+    "@opam/luv": "0.5.1",
     "ocaml": "^4.9.0"
   },
   "devDependencies": {
